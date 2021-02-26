@@ -10,3 +10,9 @@
   margin: auto;
 }
 
+
+
+.app_wrapper_content {
+  grid-area: c;
+  background-color: cornflowerblue;
+}
