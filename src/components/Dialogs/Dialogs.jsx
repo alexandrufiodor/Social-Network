@@ -1,10 +1,7 @@
 import React from 'react';
-import s from './Dialogs.module.css'
-import {NavLink} from "react-router-dom";
+import s from './Dialogs.module.css' ;
 import {DialogItem} from "./Dialog/Dialog";
 import {Message} from "./Message/Message";
-
-
 
 
 const Dialogs = (props) => {
@@ -35,10 +32,10 @@ const Dialogs = (props) => {
     return (
         <div className={s.dialogs}>
             <div className={s.dialogs_item}>
-                { dialogsElements }
+                {dialogsElements}
             </div>
             <div className={s.messages}>
-                { messagesElements }
+                {messagesElements}
             </div>
         </div>
     )
