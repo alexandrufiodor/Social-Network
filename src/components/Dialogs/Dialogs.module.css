@@ -11,13 +11,31 @@
 .dialog {
     padding: 7px;
 }
-.dialog.active{
+
+.dialog a {
+    display: flex;
+    align-items: center;
+}
+
+.dialog img {
+    width: 50px;
+    height: 50px;
+    border-radius: 99px;
+    margin-right: 10px;
+}
+
+.dialog.active {
     color: gold;
 }
+
 .messages {
     padding: 13px;
 }
 
 .message {
-    padding: 7px;
+     padding: 7px;
+ }
+
+.question{
+    display: none;
 }
