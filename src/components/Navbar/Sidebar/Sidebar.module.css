@@ -1,0 +1,26 @@
+.sidebar {
+    padding-top: 20px;
+}
+.title {
+    font-weight: 400;
+    font-size: 30px;
+    color: #fff;
+}
+.items{
+    display: flex;
+    justify-content: space-between;
+}
+.item {
+    margin-right: 20px;
+}
+.item img{
+    width: 50px;
+    height: 50px;
+    border-radius: 99px;
+
+}
+.item p{
+    margin: 0;
+    text-align: center;
+    color: white;
+}
