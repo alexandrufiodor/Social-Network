@@ -1,6 +1,7 @@
 import React from 'react';
 import s from './MyPosts.module.css'
 import Post from "./Post/Post";
+import {rerenderEntireTree} from "../../../index";
 
 
 
@@ -15,6 +16,7 @@ const MyPosts = (props) => {
     const addPost = () => {
         debugger
         let text = newPostElement.current.value;
+        newPostElement.current.value = '';
 
         {props.addPost(text)}
     }
@@ -25,7 +27,6 @@ const MyPosts = (props) => {
             <div>
                 <textarea ref={newPostElement}></textarea>
                 <button onClick={addPost}>Add post</button>
-                <button>Remove</button>
             </div>
             <div className={s.posts}>
                 { postsElements }

@@ -1,3 +1,5 @@
+import {rerenderEntireTree} from "../render";
+
 export let state = {
     profilePage: {
         posts: [
@@ -78,14 +80,15 @@ export let state = {
 }
 
 export let addPost = (postMessage) => {
-    debugger
-    let newPost =  {
+    let newPost = {
         id: 5,
         message: postMessage,
         avatar: 'https://c0.klipartz.com/pngpicture/534/918/gratis-png-naruto-uzumaki-sasuke-uchiha-rock-lee-kakashi-hatake-gaara-discord-avatar.png',
         likesCount: 0
-     }
+    }
 
-     state.profilePage.posts.push(newPost)
+    state.profilePage.posts.push(newPost)
+
+    rerenderEntireTree(state)
 
 }
