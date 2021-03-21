@@ -54,10 +54,11 @@ export let state = {
             }
         ],
         messages: [
-            {id: 1, className: 'question', message: "Hi"},
-            {id: 2, className: 'question', message: "How is your it-kamasutra?"},
-            {id: 3, className: 'answer', message: "Yo"}
-        ]
+            {id: 1, message: "Hi"},
+            {id: 2, message: "How is your it-kamasutra?"},
+            {id: 3, message: "Yo"}
+        ],
+        newMessageText: 'Hello'
     },
     sideBar: {
         friends: [
@@ -95,7 +96,23 @@ export let addPost = () => {
     rerenderEntireTree(state)
 }
 
+export let addMessage = () => {
+    let newMessage = {
+        id: 5,
+        message: state.dialogsPage.newMessageText
+    }
+
+    state.dialogsPage.messages.push(newMessage)
+    state.dialogsPage.newMessageText = '';
+    rerenderEntireTree(state)
+}
+
 export let updateNewPostText = (newText) => {
     state.profilePage.newPostText = newText;
+    rerenderEntireTree(state);
+}
+
+export let updateNewMessageText = (newText) => {
+    state.dialogsPage.newMessageText = newText;
     rerenderEntireTree(state);
 }
