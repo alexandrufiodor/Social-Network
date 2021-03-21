@@ -2,8 +2,8 @@ import s from "./Sidebar.module.css";
 
 export const Sidebar = (props) => {
 
-    let sidebarFriend = props.stateFriends.map(f => {
-        return <div className={s.item}>
+    let sidebarFriend = props.stateFriends.map((f,index) => {
+        return <div className={s.item} key={index}>
             <img src={f.avatar} alt=""/>
             <p>{f.name}</p>
         </div>

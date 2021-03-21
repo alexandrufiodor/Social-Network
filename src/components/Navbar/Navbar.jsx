@@ -1,7 +1,6 @@
 import React from 'react';
 import s from './Navbar.module.css'
 import {NavLink} from "react-router-dom";
-import {DialogItem} from "../Dialogs/Dialog/Dialog";
 import {Sidebar} from "./Sidebar/Sidebar";
 
 const Navbar = (props) => {
