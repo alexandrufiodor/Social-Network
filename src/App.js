@@ -21,12 +21,9 @@ const App = (props) => {
                 <div className={s.app_wrapper_content}>
 
                     <Route render={() => <Dialogs state={props.state.dialogsPage}
-                                                  updateNewMessageText={props.updateNewMessageText}
-                                                  addMessage={props.addMessage}/>}
-                           path="/dialogs"/>
+                                                  dispatch={props.dispatch} />} path="/dialogs"/>
                     <Route component={() => <Profile state={props.state.profilePage}
-                                                     updateNewPostText={props.updateNewPostText}
-                                                     addPost={props.addPost}/>} path="/profile"/>
+                                                     dispatch={props.dispatch} />} path="/profile"/>
                     <Route component={() => <News/>} path="/news"/>
                     <Route component={() => <Music/>} path="/music"/>
                     <Route component={() => <Settings/>} path="/settings"/>
