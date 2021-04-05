@@ -1,7 +1,37 @@
 const ADD_POST = 'ADD-POST'
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
 
-const profileReducer = (state, action) => {
+let initialState = {
+    posts: [
+        {
+            id: 1,
+            message: "Hi, how are you?",
+            avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQwWMJbZoZ26ZyYB8M-1e7OLBVUWXRLNSO6A&usqp=CAU',
+            likesCount: 12
+        },
+        {
+            id: 2,
+            message: "It's my first post",
+            avatar: 'https://c0.klipartz.com/pngpicture/534/918/gratis-png-naruto-uzumaki-sasuke-uchiha-rock-lee-kakashi-hatake-gaara-discord-avatar.png',
+            likesCount: 21
+        },
+        {
+            id: 3,
+            message: "It's my first post1",
+            avatar: 'https://c0.klipartz.com/pngpicture/534/918/gratis-png-naruto-uzumaki-sasuke-uchiha-rock-lee-kakashi-hatake-gaara-discord-avatar.png',
+            likesCount: 21
+        },
+        {
+            id: 4,
+            message: "It's my first post2",
+            avatar: 'https://c0.klipartz.com/pngpicture/534/918/gratis-png-naruto-uzumaki-sasuke-uchiha-rock-lee-kakashi-hatake-gaara-discord-avatar.png',
+            likesCount: 21
+        }
+    ],
+    newPostText: 'it-kamasutra.com'
+}
+
+const profileReducer = (state= initialState, action) => {
 
     switch (action.type) {
 
