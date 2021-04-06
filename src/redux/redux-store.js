@@ -8,5 +8,5 @@ let reducers = combineReducers({
     dialogsPage: dialogsReducer,
     sideBar: sidebarReducer,
 })
-
-export let store = createStore(reducers);
+let store = createStore(reducers);
+export default store

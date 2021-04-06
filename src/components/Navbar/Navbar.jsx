@@ -26,7 +26,7 @@ const Navbar = (props) => {
             </nav>
 
 
-            <Sidebar stateFriends={props.state.friends}/>
+            {/*<Sidebar stateFriends={props.store.sideBar.friends}/>*/}
 
         </div>
 
