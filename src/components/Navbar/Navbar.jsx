@@ -26,7 +26,7 @@ const Navbar = (props) => {
             </nav>
 
 
-            <SidebarContainer store={props.store}/>
+            <SidebarContainer />
 
         </div>
 

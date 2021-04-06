@@ -9,26 +9,29 @@ import Settings from "./components/Settings/Settings";
 import Music from "./components/Music/Music";
 import News from "./components/News/News";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
+import StoreContext from "./StoreContext";
 
 
 const App = (props) => {
 
     return (
         <BrowserRouter>
-            <div className={s.app_wrapper}>
-                <Header/>
-                <Navbar store={props.store}/>
 
-                <div className={s.app_wrapper_content}>
+                <div className={s.app_wrapper}>
+                    <Header/>
+                    <Navbar  />
 
-                    <Route render={() => <DialogsContainer store={props.store} />} path="/dialogs"/>
-                    <Route render={() => <Profile  store={props.store}  />} path="/profile"/>
-                    <Route component={() => <News/>} path="/news"/>
-                    <Route component={() => <Music/>} path="/music"/>
-                    <Route component={() => <Settings/>} path="/settings"/>
+                    <div className={s.app_wrapper_content}>
+
+                        <Route render={() => <DialogsContainer  />} path="/dialogs"/>
+                        <Route render={() => <Profile  />} path="/profile"/>
+                        <Route component={() => <News/>} path="/news"/>
+                        <Route component={() => <Music/>} path="/music"/>
+                        <Route component={() => <Settings/>} path="/settings"/>
+                    </div>
+
                 </div>
 
-            </div>
         </BrowserRouter>
     );
 }
