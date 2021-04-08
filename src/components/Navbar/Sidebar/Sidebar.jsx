@@ -2,7 +2,7 @@ import s from "./Sidebar.module.css";
 
 export const Sidebar = (props) => {
 
-    let sidebarFriend = props.friends.map((f,index) => {
+    let sidebarFriend = props.sideBar.friends.map((f,index) => {
         return <div className={s.item} key={index}>
             <img src={f.avatar} alt=""/>
             <p>{f.name}</p>

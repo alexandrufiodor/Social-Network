@@ -5,11 +5,11 @@ import {Message} from "./Message/Message";
 
 const Dialogs = (props) => {
 
-    let dialogsElements = props.dialogs.map((d, index) => {
+    let dialogsElements = props.dialogsPage.dialogs.map((d, index) => {
         return <DialogItem avatar = {d.avatar} name={d.name} id={d.id} key={index}/>
     })
 
-    let messagesElements = props.messages.map((m, index) => {
+    let messagesElements = props.dialogsPage.messages.map((m, index) => {
         return <Message message={m.message} key={index}/>
     })
     //
@@ -30,7 +30,7 @@ const Dialogs = (props) => {
             <div className={s.messages}>
                 {messagesElements}
                 <div>
-                    <textarea onChange={onMessageChange} ref={newMessage} value={props.newMessageText}/>
+                    <textarea onChange={onMessageChange} ref={newMessage} value={props.dialogsPage.newMessageText}/>
                     <button onClick={addMessage}>Send Message</button>
                 </div>
             </div>
