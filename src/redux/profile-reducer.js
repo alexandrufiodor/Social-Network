@@ -31,25 +31,27 @@ let initialState = {
     newPostText: 'it-kamasutra.com'
 }
 
-const profileReducer = (state= initialState, action) => {
-
+const profileReducer = (state = initialState, action) => {
     switch (action.type) {
 
         case ADD_POST: {
-            let newPost = {
-                id: 5,
-                message: state.newPostText,
-                avatar: 'https://c0.klipartz.com/pngpicture/534/918/gratis-png-naruto-uzumaki-sasuke-uchiha-rock-lee-kakashi-hatake-gaara-discord-avatar.png',
-                likesCount: 0
+            let body = state.newPostText
+            return {
+                ...state,
+                posts: [...state.posts, {
+                    id: 5,
+                    message: body,
+                    avatar: 'https://c0.klipartz.com/pngpicture/534/918/gratis-png-naruto-uzumaki-sasuke-uchiha-rock-lee-kakashi-hatake-gaara-discord-avatar.png',
+                    likesCount: 0
+                }],
+                newPostText: ''
             }
-
-            state.posts.push(newPost);
-            state.newPostText = '';
-            return {...state};
         }
         case UPDATE_NEW_POST_TEXT: {
-            state.newPostText  = action.newText;
-            return {...state};
+            return {
+                ...state,
+                newPostText: action.newText
+            }
         }
         default:
             return state;
