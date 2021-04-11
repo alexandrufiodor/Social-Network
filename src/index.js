@@ -5,7 +5,6 @@ import ReactDOM from "react-dom";
 import React from "react";
 import App from "./App";
 import {BrowserRouter} from "react-router-dom";
-import StoreContext from "./StoreContext";
 import {Provider} from "react-redux";
 
 
@@ -18,5 +17,5 @@ ReactDOM.render(
     document.getElementById('root')
 );
 
-
+window.store = store
 reportWebVitals();
