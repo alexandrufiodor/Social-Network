@@ -7,13 +7,13 @@ export const SET_USERS_TOTAL_COUNT = 'SET-USERS-TOTAL-COUNT'
 
 const initialState = {
     users: [],
-    pageSize: 5,
+    pageSize: 100,
     totalUsersCount: 0,
-    currentPage: 3
+    currentPage: 1
 }
 
 
-const UsersReducer = (state = initialState , action) => {
+const UsersReducer = (state = initialState, action) => {
 
     switch (action.type) {
         case  FOLLOW : {
