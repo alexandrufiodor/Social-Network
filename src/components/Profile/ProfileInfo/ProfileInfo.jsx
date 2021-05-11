@@ -26,8 +26,6 @@ export const ProfileInfo = (props) => {
                 <div>About me: {props.profile.aboutMe}</div>
                 <div>Job Description: {props.profile.lookingForAJobDescription}</div>
             </div>
-
-
         </div>
     }
 
