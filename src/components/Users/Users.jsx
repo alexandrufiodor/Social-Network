@@ -3,6 +3,7 @@ import s from './Users.module.css'
 import userPhoto from '../../assets/images/avatar.png';
 import {NavLink} from "react-router-dom";
 import * as axios from "axios";
+import {userAPI} from "../../api/api";
 
 const Users = (props) => {
 
@@ -32,26 +33,16 @@ const Users = (props) => {
                             </div>
                             <div>   {u.followed ? <button onClick={() => {
 
-                                    axios.delete(`https://social-network.samuraijs.com/api/1.0//follow/${u.id}`, {
-                                        withCredentials: true,
-                                        headers: {
-                                            'API-KEY': '367b5061-81a8-4346-a38b-61dffe8fe508'
-                                        }
-                                    }).then(response => {
-                                        if (response.data.resultCode === 0) {
+                                    userAPI.unfollow(u.id).then(data => {
+                                        if (data.resultCode === 0) {
                                             props.unfollow(u.id)
                                         }
                                     });
 
                                 }}>Unfollow</button> :
                                 <button onClick={() => {
-                                    axios.post(`https://social-network.samuraijs.com/api/1.0//follow/${u.id}`, {}, {
-                                        withCredentials: true,
-                                        headers: {
-                                            'API-KEY': '367b5061-81a8-4346-a38b-61dffe8fe508'
-                                        }
-                                    }).then(response => {
-                                        if (response.data.resultCode === 0) {
+                                     userAPI.follow(u.id).then(data => {
+                                        if (data.resultCode === 0) {
                                             props.follow(u.id)
                                         }
                                     });
