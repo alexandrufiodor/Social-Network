@@ -2,11 +2,13 @@ import React from 'react';
 import s from './Dialogs.module.css' ;
 import {DialogItem} from "./Dialog/Dialog";
 import {Message} from "./Message/Message";
+import Login from "../Login/login";
+import {Redirect} from "react-router-dom";
 
 const Dialogs = (props) => {
 
     let dialogsElements = props.dialogsPage.dialogs.map((d, index) => {
-        return <DialogItem avatar = {d.avatar} name={d.name} id={d.id} key={index}/>
+        return <DialogItem avatar={d.avatar} name={d.name} id={d.id} key={index}/>
     })
 
     let messagesElements = props.dialogsPage.messages.map((m, index) => {
@@ -22,6 +24,10 @@ const Dialogs = (props) => {
         let text = newMessage.current.value;
         props.onMessageChange(text)
     }
+
+    if (props.isAuth == false) {
+        return <Redirect to={'/login'}/>
+    }
     return (
         <div className={s.dialogs}>
             <div className={s.dialogs_item}>
@@ -36,6 +42,8 @@ const Dialogs = (props) => {
             </div>
         </div>
     )
+
+
 }
 
 export default Dialogs;

@@ -1,4 +1,5 @@
 import {authAPI, profileAPI} from "../api/api";
+import {getUserProfile} from "./profile-reducer";
 
 export const SET_USER_DATA = 'SET-USER-DATA'
 
@@ -30,10 +31,13 @@ export const setAuthUserData = (id, email, login) => ({type: SET_USER_DATA, data
 export const getAuthUserData = () => {
     return (dispatch) => {
         authAPI.me().then(response => {
-            debugger
+
             if (response.resultCode == 0) {
                 let { email, id, login} = response.data
                 dispatch(setAuthUserData(id, email, login))
+
+
+
             }
         });
     }
