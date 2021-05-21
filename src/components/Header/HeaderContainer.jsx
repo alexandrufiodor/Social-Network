@@ -2,6 +2,9 @@ import React from 'react';
 import Header from "./Header";
 import {connect} from "react-redux";
 import {getAuthUserData} from "../../redux/auth-reducer";
+import {compose} from "redux";
+import {follow, getUsers, setCurrentPage, toggleIsFollowingInProgress, unfollow} from "../../redux/users-reducer";
+import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 
 class HeaderContainer extends React.Component {
     constructor(props) {
@@ -30,6 +33,8 @@ let mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, {
-    getAuthUserData
-})(HeaderContainer);
+export default compose(
+    connect(mapStateToProps, {
+        getAuthUserData
+    })
+)(HeaderContainer)
