@@ -1,6 +1,5 @@
 import React from 'react';
 import s from './App.module.css';
-import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
 import Settings from "./components/Settings/Settings";
 import Music from "./components/Music/Music";
@@ -18,22 +17,22 @@ const App = (props) => {
     return (
         <BrowserRouter>
 
-                <div className={s.app_wrapper}>
-                    <HeaderContainer/>
-                    <Navbar  />
+            <div className={s.app_wrapper}>
+                <HeaderContainer/>
+                <Navbar/>
 
-                    <div className={s.app_wrapper_content}>
+                <div className={s.app_wrapper_content}>
 
-                        <Route render={() => <DialogsContainer  />} path="/dialogs"/>
-                        <Route render={() => <ProfileContainer  />} path="/profile/:userId?"/>
-                        <Route component={() => <UsersContainer  />} path="/users"/>
-                        <Route component={() => <News/>} path="/news"/>
-                        <Route component={() => <Music/>} path="/music"/>
-                        <Route component={() => <Settings/>} path="/settings"/>
-                        <Route component={() => <Login/>} path="/login"/>
-                    </div>
-
+                    <Route render={() => <DialogsContainer/>} path="/dialogs"/>
+                    <Route render={() => <ProfileContainer/>} path="/profile/:userId?"/>
+                    <Route component={() => <UsersContainer/>} path="/users"/>
+                    <Route component={() => <News/>} path="/news"/>
+                    <Route component={() => <Music/>} path="/music"/>
+                    <Route component={() => <Settings/>} path="/settings"/>
+                    <Route component={() => <Login/>} path="/login"/>
                 </div>
+
+            </div>
 
         </BrowserRouter>
     );
