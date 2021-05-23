@@ -1,16 +1,13 @@
 import React from 'react';
 import {connect} from "react-redux";
 import {
-    follow,
-    followSuccess, getUsers,
-    setCurrentPage, toggleIsFollowingInProgress, unfollow,
-    unfollowSuccess
+    follow,  getUsers,
+    setCurrentPage, toggleIsFollowingInProgress, unfollow
 } from "../../redux/users-reducer";
 import Users from "./Users";
 import Preloader from "../common/Preloader/Preloader";
 import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 import {compose} from "redux";
-import Dialogs from "../Dialogs/Dialogs";
 
 class UsersContainer extends React.Component {
 

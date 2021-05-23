@@ -1,5 +1,6 @@
 import {authAPI, profileAPI} from "../api/api";
 import {setAuthUserData} from "./auth-reducer";
+import {UNFOLLOW} from "./users-reducer";
 
 const ADD_POST = 'ADD-POST'
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
@@ -38,7 +39,6 @@ let initialState = {
 
 const profileReducer = (state = initialState, action) => {
     switch (action.type) {
-
         case ADD_POST: {
             let body = state.newPostText
             return {
@@ -63,7 +63,7 @@ const profileReducer = (state = initialState, action) => {
                 ...state,
                 profile: action.profile
             }
-        }
+        } 
         default:
             return state;
     }
