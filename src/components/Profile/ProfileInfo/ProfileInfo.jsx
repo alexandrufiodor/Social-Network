@@ -4,7 +4,6 @@ import Preloader from "../../common/Preloader/Preloader";
 import {ProfileStatus} from "./ProfileStatus";
 
 export const ProfileInfo = (props) => {
-
         return <div>
             <div className={s.content_img}>
                 <img
@@ -15,13 +14,12 @@ export const ProfileInfo = (props) => {
                 <div>
                     <div><img src={props.profile.photos.large} /></div>
                     <div>{props.profile.fullName}</div>
-                    <ProfileStatus status={'Hi I am Alex, frontend dev'}/>
+                    <div>Status: <ProfileStatus status={props.status} updateStatus = {props.updateStatus}/></div>
                     <div>About me: {props.profile.aboutMe}</div>
                     <div>Job Description: {props.profile.lookingForAJobDescription}</div>
                 </div> :  <Preloader />
             }
 
         </div>
-
 
 }
