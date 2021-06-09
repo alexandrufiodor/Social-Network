@@ -1,5 +1,5 @@
-import {authAPI, profileAPI} from "../api/api";
-import {getUserProfile} from "./profile-reducer";
+import {authAPI } from "../api/api";
+import {stopSubmit} from "redux-form";
 
 export const SET_USER_DATA = 'SET-USER-DATA'
 
@@ -17,7 +17,7 @@ const AuthReducer = (state = initialState, action) => {
         case  SET_USER_DATA : {
             return {
                 ...state,
-                ...action.payload 
+                ...action.payload
             }
         }
         default:
@@ -25,19 +25,18 @@ const AuthReducer = (state = initialState, action) => {
     }
 }
 
-export const setAuthUserData = (id, email, login, isAuth) => ({type: SET_USER_DATA, payload: {id: id, email: email, login: login, isAuth: isAuth}})
-// export const getAuthUserData = (id, email, login) => ({type: SET_USER_DATA, data: {id: id, email: email, login: login}})
+export const setAuthUserData = (id, email, login, isAuth) => ({
+    type: SET_USER_DATA,
+    payload: {id: id, email: email, login: login, isAuth: isAuth}
+})
 
 export const getAuthUserData = () => {
     return (dispatch) => {
         authAPI.me().then(response => {
 
             if (response.resultCode == 0) {
-                let { email, id, login} = response.data
+                let {email, id, login} = response.data
                 dispatch(setAuthUserData(id, email, login, true))
-
-
-
             }
         });
     }
@@ -45,14 +44,17 @@ export const getAuthUserData = () => {
 
 
 export const login = (email, password, rememberMe) => (dispatch) => {
-        authAPI.login(email, password, rememberMe)
-            .then(response => {
+    authAPI.login(email, password, rememberMe)
+        .then(response => {
             if (response.data.resultCode == 0) {
                 dispatch(getAuthUserData())
+            } else {
+                let message = response.data.messages.length > 0 ? response.data.messages[0] : "Some error"
+                const action = stopSubmit('login', {_error: message})
+                dispatch(action)
             }
         });
 }
-
 
 
 export const logout = () => (dispatch) => {
