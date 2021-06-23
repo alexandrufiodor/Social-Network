@@ -9,9 +9,9 @@ class HeaderContainer extends React.Component {
         super(props)
     }
 
-    componentDidMount() {
-        this.props.getAuthUserData()
-    }
+    // componentDidMount() {
+    //     this.props.getAuthUserData()
+    // }
 
     render() {
         return <Header {...this.props}/>
@@ -27,7 +27,7 @@ let mapStateToProps = (state) => {
 
 export default compose(
     connect(mapStateToProps, {
-        getAuthUserData,
+        // getAuthUserData,
         logout
     })
 )(HeaderContainer)

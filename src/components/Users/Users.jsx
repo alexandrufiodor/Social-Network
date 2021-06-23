@@ -3,6 +3,8 @@ import s from './Users.module.css'
 import userPhoto from '../../assets/images/avatar.png';
 import {NavLink} from "react-router-dom";
 import {userAPI} from "../../api/api";
+import Pagination from '@material-ui/lab/Pagination';
+
 
 const Users = (props) => {
 
